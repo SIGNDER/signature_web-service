@@ -1,0 +1,37 @@
+﻿/*This sets the button style - All signature-pad buttons will use that "base style".
+
+You can overwrite any style.
+
+nb: 
+
+-You can delete the "em" function and put the type of unit you want or just change the number into the parenthesis to a pixel unit number.
+For example:  em(10)=10px, em(30)=30px.
+
+-if you don't want to use a gradient, just delete the "include line" and enter a background-color.
+
+-"$sbradius", "$swhite", "$sprimary" variables are in the _s-pad-vars.scss.
+*/
+    
+    %s-button{
+    display:block;
+    padding:em(10);
+    width:60%;
+    border-radius:$s-button-border-radius;
+    @include slinear-gradient(lighten($-sbutton-color, 10%), darken($-sbutton-color, 10%));
+    font-size:$s-button-font-size;
+    color:$swhite;
+    text-transform:uppercase;
+    text-align:$-sbutton-text-align;
+    outline:0;
+    border:0;
+    cursor:pointer;
+    &:hover{
+        @include slinear-gradient(darken($-sbutton-color, 10%), lighten($-sbutton-color, 10%));
+          }
+    
+    
+    i{
+        float:right;
+    }
+}
+

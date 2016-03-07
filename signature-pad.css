@@ -1,0 +1,205 @@
+/*This simple function transforms all pixel units into "em" or "rem" units
+    - here is how to use it: em(16) or rem(16); 
+    - result should be 1em or 1 rem
+    - the "$sbase" variable should be the same as your html font-size
+    
+    -Function /is for retina display picture.
+        you should have a 1x and a 2x (double pixel size) picture
+        The retina-image mixin is a helper to generate a retina background image and non-retina background image. The retina background image will output to a HiDPI media query. The mixin uses a _2x.png filename suffix by default.
+        $filename will resolve a path to the image, e.g. "../../home-icon". 
+        @retina-image($filename, $background-size, $extension*, $retina-filename*, $retina-suffix*, $asset-pipeline*)
+        * = optional
+
+        Argument Defaults
+
+        $extension: png
+        $retina-filename: null
+        $retina-suffix: _2x
+        $asset-pipeline: false 
+
+*/
+/* All useful color & shape variables for the signature pad
+     - "$sprimary" is use for the button color
+     - other colors are for the pad itself
+     - "$sbradius" is used to set the same border-radius on the pad  
+     - all no unit number are in pixels but they will be transformed into em 
+*/
+/*--- color ---*/
+/*--- shape ---*/
+/*--- element ---*/
+/*It is a simple mixin used to add media queries and the linear-gradient used by bourbon.io .*/
+/*This sets the button style - All signature-pad buttons will use that "base style".
+
+You can overwrite any style.
+
+nb: 
+
+-You can delete the "em" function and put the type of unit you want or just change the number into the parenthesis to a pixel unit number.
+For example:  em(10)=10px, em(30)=30px.
+
+-if you don't want to use a gradient, just delete the "include line" and enter a background-color.
+
+-"$sbradius", "$swhite", "$sprimary" variables are in the _s-pad-vars.scss.
+*/
+.m-signature-pad {
+  position: absolute;
+  font-size: 1rem;
+  width: 27.375em;
+  height: 19.5em;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  box-shadow: 0 1px 0.15625em rgba(0, 0, 0, 0.27), 0 0 1.5625em;
+  border-radius: 0.3125em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  /* progress elements*/ }
+  .m-signature-pad:after {
+    content: "\00d7";
+    position: absolute;
+    top: -0.75em;
+    right: -0.75em;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 1.125em;
+    height: 1.125em;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0.0625em 0.0625em 0.0625em rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    font-family: Arial;
+    box-sizing: border-box; }
+    .m-signature-pad:after:hover {
+      color: #000;
+      cursor: pointer; }
+  .m-signature-pad .signder_logo {
+    float: left;
+    width: 27%;
+    height: 27%;
+    padding-left: 0.625em;
+    padding-top: 0.3125em; }
+  .m-signature-pad .selectLang {
+    float: right;
+    text-align: right;
+    line-height: 1.5;
+    padding-right: 1.25em;
+    padding-top: 0.3125em; }
+    .m-signature-pad .selectLang a {
+      padding-right: 0.0375em;
+      font-size: 0.75rem;
+      text-decoration: none; }
+      .m-signature-pad .selectLang a:hover {
+        text-decoration: underline; }
+  .m-signature-pad .secureCode {
+    display: none;
+    margin: 3.75em 0 0 0.625em;
+    font-size: 0.875rem; }
+    @media only screen and (max-width: 480px) {
+      .m-signature-pad .secureCode {
+        margin: 3.125em 0 0 0.625em; } }
+  .m-signature-pad .m-signature-pad--body {
+    position: absolute;
+    left: 0.625em;
+    right: 0.625em;
+    top: 6.375em;
+    bottom: 6.375em; }
+    @media only screen and (max-width: 480px) {
+      .m-signature-pad .m-signature-pad--body {
+        position: absolute;
+        top: 5em;
+        bottom: 4.375em; } }
+    .m-signature-pad .m-signature-pad--body .SignLign {
+      border-top: 1px dotted black;
+      margin: auto;
+      width: 90%;
+      position: relative;
+      top: 5.625em;
+      z-index: 100; }
+      @media only screen and (max-width: 480px) {
+        .m-signature-pad .m-signature-pad--body .SignLign {
+          top: 6.25em; } }
+    .m-signature-pad .m-signature-pad--body canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #F9F9FC;
+      border: 1px solid black;
+      border-radius: 0.3125em; }
+  .m-signature-pad .m-signature-pad--info {
+    position: absolute;
+    left: 0.0625em;
+    right: 0.0625em;
+    top: 12.8125em;
+    font-size: 1rem;
+    padding: 0.78125em; }
+    @media only screen and (max-width: 480px) {
+      .m-signature-pad .m-signature-pad--info {
+        top: 11.875em; } }
+  .m-signature-pad .m-signature-pad-bg {
+    display: none;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10001;
+    border-radius: 0.3125em; }
+  .m-signature-pad .m-signature-pad-content {
+    background-image: url("../../Content/progress.gif");
+    background-size: 1.5625em 1.5625em;
+    background-repeat: no-repeat;
+    display: none;
+    position: relative;
+    top: 50%;
+    width: 80%;
+    left: 50%;
+    padding: 0.375em;
+    text-align: center;
+    border: 1px solid #E8E9F7;
+    background-color: white;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #000;
+    transform: translate(-50%, -50%); }
+    @media only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+      .m-signature-pad .m-signature-pad-content {
+        background-image: url("../../Content/progress_2x.gif");
+        background-size: 1.5625em; } }
+    @media only screen and (max-width: 480px) {
+      .m-signature-pad .m-signature-pad-content {
+        width: 95%; } }
+  .m-signature-pad .m-signature-pad--footer {
+    position: absolute;
+    left: 0.78125em;
+    right: 0.78125em;
+    bottom: 1.17188em;
+    height: 1.5625em; }
+    @media only screen and (max-width: 480px) {
+      .m-signature-pad .m-signature-pad--footer {
+        left: 0.78125em;
+        right: 0.78125em;
+        bottom: 0.15625em;
+        height: 1.09375em; } }
+    .m-signature-pad .m-signature-pad--footer .button {
+      position: absolute;
+      bottom: 0;
+      font-size: 0.625rem;
+      text-align: center;
+      width: 40%; }
+      .m-signature-pad .m-signature-pad--footer .button.clear {
+        left: 0; }
+      .m-signature-pad .m-signature-pad--footer .button.save {
+        right: 0; }
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
