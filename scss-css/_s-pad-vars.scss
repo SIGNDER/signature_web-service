@@ -1,0 +1,69 @@
+/* All useful color & shape variables for the signature pad
+     - "$sprimary" is use for the button color
+     - other colors are for the pad itself
+     - "$sbradius" is used to set the same border-radius on the pad  
+     - all no unit number are in pixels but they will be transformed into em 
+*/
+
+
+/*--- color ---*/
+
+$sprimary:#1085af;
+$swhite:#fff;
+$sblack:#000;
+
+/*--- shape ---*/
+$sbradius:em(5);
+$sborder-size:1px;
+$sborder-color-light:#e4e4e4;
+$sbase-font-size:rem(16);
+$stext-align-center:center;
+
+/*--- element ---*/
+$signpad-font-size:$sbase-font-size; 
+$signpad-border-color:#e8e8e8;
+$signpad-border-size:$sborder-size;
+$signpad-border-radius:$sbradius;
+$signpad-width:438; 
+$signpad-height:312;
+$signpad-mobile-land-max-size:460px;
+$signpad-mobile-portrait-max-size:280px;
+
+
+$close-font-size:$sbase-font-size;
+$close-shadow-color:rgba($sblack,0.3);
+$close-border-size:2px;
+
+$sinfo-font-size:rem(12);
+
+$sbody-border-size:$sborder-size;
+$sbody-border-color:$sborder-color-light;
+
+$canvas-border-radius:$sbradius;
+
+$s-button-border-radius:$sbradius;
+$s-button-font-size:rem(14);
+$-sbutton-text-align:$stext-align-center;
+$-sbutton-color:$sprimary;
+
+$sbuttonc-font-size:rem(10);
+$sbuttonc-text-align:$stext-align-center;
+
+$spad-bg-back-color:rgba($sblack,0.4);
+$spad-border-radius:$sbradius;
+
+$content-progress-img:"../../Content/progress.gif";
+$content-font-size:rem(14);
+$content-text-align:$stext-align-center;
+$content-border-size:$sborder-size;
+$content-border-color:#E8E9F7;
+
+
+
+/// Global variables to enable or disable vendor prefixes
+
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default;

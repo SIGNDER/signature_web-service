@@ -1,0 +1,215 @@
+﻿//signature pad outline and elements in header
+.m-signature-pad {
+    position: absolute;
+    font-size: rem(16);
+    width: em(438);
+    height: em(312);
+    border: 1px solid #e8e8e8;
+    background-color: $swhite;
+    box-shadow: 0 1px em(2.5) rgba(0, 0, 0, 0.27), 0 0 em(25);
+    border-radius: em(5);
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    z-index: 9999;
+    &:after {
+        content: "\00d7";
+        position: absolute;
+        top: em(-12);
+        right: em(-12);
+        font-weight: bold;
+        font-size: rem(16);
+        width: em(18);
+        height: em(18);
+        color: $swhite;
+        cursor: pointer;
+        text-align: center;
+        display: block;
+        background-color: $sblack;
+        border-radius: 50%;
+        border: 2px solid $swhite;
+        box-shadow: 0 em(1) em(1) em(1) rgba($sblack,0.3);
+        pointer-events: none;
+        font-family: Arial;
+        box-sizing: border-box;
+        &:hover {
+            color: $sblack;
+            cursor: pointer;
+        }
+    }
+
+    //logo of signder in top-left corner of the signature-pad
+    .signder_logo {
+        float: left;
+        width: 27%;
+        height: 27%;
+        padding-left: em(10);
+        padding-top: em(5);
+    }
+
+    //language selection on top-right corner
+    .selectLang {
+        float: right;
+        text-align: right;
+        line-height: 1.5;
+        padding-right: em(20);
+        padding-top: em(5);
+
+        a {
+            padding-right: em(.6);
+            font-size: rem(12);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    //security code when needed
+    .secureCode {
+        display: none;
+        margin:em(60) 0 0 em(10);
+        font-size:rem(14);
+        @include smedia(480px){
+            margin:em(50) 0 0 em(10);
+        }
+
+    }
+
+    //body of the signature pad (where you sign)
+    .m-signature-pad--body {
+        position: absolute;
+        left: em(10);
+        right: em(10);
+        top: em(102);
+        bottom: em(102);
+
+        @include smedia(480px) {
+            position: absolute;
+            top: em(80);
+            bottom: em(70);
+        }
+
+        //line in the signature area
+        .SignLign {
+           border-top: 1px dotted black;
+           margin: auto;
+           width: 90%;
+           position: relative;
+           top: em(90);
+           z-index: 100;
+
+         @include smedia(480px) {
+            top: em(100);
+            }
+           }
+
+        //signature active area
+        canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F9F9FC;
+            border: 1px solid black;
+            border-radius: em(5);
+        }
+    }
+
+    //information below th signature area
+
+    .m-signature-pad--info {
+        position: absolute;
+        left: em(1);
+        right: em(1);
+        top: em(205);
+        font-size: rem(16);
+        padding: em(12.5);
+
+        @include smedia(480px) {
+            top: em(190);
+        }
+    }
+
+/* progress elements*/
+    //black overlay
+    .m-signature-pad-bg {
+        display: none;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 10001;
+        border-radius: em(5);
+    }
+
+    //"Initializing signature pad" message
+    .m-signature-pad-content {
+        @include sretina-image("../../Content/progress", em(25), gif);
+        background-size: em(25) em(25);
+        background-repeat:no-repeat;
+        display: none;
+        position: relative;
+        top: 50%;
+        width: 80%;
+        left: 50%;
+        padding: em(6);
+        text-align: center;
+        border: 1px solid #E8E9F7;
+        background-color: white;
+        text-align: center;
+        font-size: rem(14);
+        color: #000;
+        @include transform(translate(-50%,-50%));
+
+
+        @include smedia(480px) {
+            width: 95%;
+        }
+    }
+
+    //button area 
+    .m-signature-pad--footer {
+        position: absolute;
+        left: em(12.5);
+        right: em(12.5);
+        bottom: em(18.75);
+        height: em(25);
+
+        @include smedia(480px) {
+            left: em(12.5);
+            right: em(12.5);
+            bottom: em(2.5);
+            height: em(17.5);
+        }
+
+        //button general
+        .button {
+            @extend %button;
+            position: absolute;
+            bottom: 0;
+            font-size: rem(10);
+            text-align: center;
+            width: 40%;
+
+
+            //left buton
+            &.clear {
+                left: 0;
+            }
+            //right button
+            &.save {
+                right: 0;
+            }
+        }
+    }   
+}
+
+// progress info when loading
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
